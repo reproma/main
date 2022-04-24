@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_payment_receipt_document_rroma" inherit_id="account.report_payment_receipt_document">
+        <xpath expr="//div[@t-if='o.payment_method_id']" position="replace">
+            <div class="col-6" t-if="o.payment_method_id">
+                <strong>Payment Method: </strong><span t-field="o.l10n_cr_edi_payment_method"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//table" position="after">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <strong>The validity of this receipt is conditional on the checks received in partial or total payment has been paid by the respective bank.</strong>
+                    <strong>Invalid this receipt if it contains alterations or scratches</strong>
+                </div>
+                <div class="col-6">
+                    <span><strong style="font-size:18px">BY REPRESENTACIONES ROMA, S.A.</strong></span>
+                    <br/>
+                    <br/>
+                    ___________________________________________________________
+                    <span><strong>Original: Client / Copy: Accounting / Copy: Registry</strong></span>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

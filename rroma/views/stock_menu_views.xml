@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_action_print_csv_stock_valuation_layer"
+        parent="stock.menu_warehouse_report"
+        action="action_print_csv_stock_valuation_layer"
+        sequence="20"/>
+</odoo>

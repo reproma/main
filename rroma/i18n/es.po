@@ -1,0 +1,481 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rroma
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-05 20:13+0000\n"
+"PO-Revision-Date: 2021-03-05 20:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: rroma
+#: model:res.groups,comment:rroma.group_product_cost
+msgid ""
+"\n"
+"            - Users of this group will have access to see the product cost\n"
+"        "
+msgstr ""
+"\n"
+"            - Usuarios de este grupo tendrán acceso a ver el costo del producto\n"
+"        "
+
+#. module: rroma
+#: model:mail.template,subject:rroma.invoiced_ticket_request_email_template
+msgid "${object.display_name}"
+msgstr ""
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.view_repair_order_form
+msgid "&amp;nbsp;&amp;nbsp;"
+msgstr ""
+
+#. module: rroma
+#: model:mail.template,body_html:rroma.invoiced_ticket_request_email_template
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<div>\n"
+"    % set repair = object.fsm_task_ids.repair_id\n"
+"    Dear ${object.sudo().partner_id.name or 'Madam/Sir'},<br/><br/>\n"
+"    This automatic message informs you that we have invoiced your ticket ${object.name}.<br/>\n"
+"    % if repair.name:\n"
+"    The repair order: ${repair.name} has been closed and invoiced correctly.<br/><br/>\n"
+"    % endif\n"
+"    Kind regards,<br/><br/>\n"
+"    ${object.team_id.name or 'Helpdesk'} Team.\n"
+"</div>\n"
+"        "
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<div>\n"
+"    % set repair = object.fsm_task_ids.repair_id\n"
+"    Estimado ${object.sudo().partner_id.name or 'Señora/Señor'},<br/><br/>\n"
+"    Este mensaje automático le informa que hemos facturado su ticket ${object.name}.<br/>\n"
+"    % if repair.name:\n"
+"    La orden de reparación: ${repair.name} ha sido cerrado y facturado correctamente.<br/><br/>\n"
+"    % endif\n"
+"    Saludos cordiales,<br/><br/>\n"
+"    ${object.team_id.name or 'Mesa de ayuda'} Equipo.\n"
+"</div>\n"
+"        "
+
+#. module: rroma
+#: model:res.groups,name:rroma.group_product_cost
+msgid "Allow to see product cost"
+msgstr "Permitir ver costo del producto"
+
+#. module: rroma 
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid ""
+"<br/><span>Document Version: 4.3</span><br/>\n"
+"                                <span>Authorized by resolution N° DGT-R-48-2016</span>"
+msgstr ""
+"<br/><span>Versión del Documento: 4.3</span><br/>\n"
+"                                <span>Autorizado mediante resolución N° DGT-R-48-2016 del 7 de octubre del 2016</span>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_inherit_rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_saleorder_document_inherit_rroma
+msgid "<span>Tax</span>"
+msgstr "<span>Impuesto</span>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_payment_receipt_document_rroma
+msgid ""
+"<span><strong style=\"font-size:18px\">BY REPRESENTACIONES ROMA, S.A.</strong></span>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    ___________________________________________________________\n"
+"                    <span><strong>Original: Client / Copy: Accounting / Copy: Registry</strong></span>"
+msgstr ""
+"<strong style=\"font-size:18px\">POR REPRESENTACIONES ROMA, S.A.</strong>\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    ___________________________________________________________\n"
+"                    <strong>Original: Cliente / Copia: Contabilidad / Copia: Archivo</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "<strong>ACCORDING RECEIPT:</strong>"
+msgstr "<strong>RECIBO CONFORME:</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchaseorder_document_rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchasequotation_document_rroma
+msgid "<strong>Door to Door: </strong>"
+msgstr "<strong>Puerta a Puerta: </strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchaseorder_document_rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchasequotation_document_rroma
+msgid "<strong>Door to Port: </strong>"
+msgstr "<strong>Puerta a Puerto: </strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Fecha de factura:</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "<strong>NAME:</strong>"
+msgstr "<strong>NOMBRE:</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_payment_receipt_document_rroma
+msgid "<strong>Payment Method: </strong>"
+msgstr "<strong>Medio de Pago: </strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_inherit_rroma
+msgid "<strong>Payment term:</strong>"
+msgstr "<strong>Plazo:</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_inherit_rroma
+msgid "<strong>Sale condition:</strong>"
+msgstr "<strong>Condición de la venta:</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchaseorder_document_rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchasequotation_document_rroma
+msgid "<strong>Shipping Instructions: </strong>"
+msgstr "<strong>Instrucciones de Envío: </strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "<span>(INCOTERMS 2020)</span>"
+msgstr ""
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_maintenance_equipment__product_id
+msgid "Allows the management of equipment in locations"
+msgstr "Permite la gestión de equipos en ubicaciones"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_purchase_order__alternate_shipping_address_id
+msgid "Alternate Shipping Address"
+msgstr "Dirección de envío alternativa"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_purchase_order__alternate_shipping_address_id
+msgid "Alternative shipping address, to show in the purchase reports."
+msgstr "Dirección de envío alternativa, para mostrar en los informes de compra."
+
+#. module: rroma
+#: model:helpdesk.stage,legend_blocked:rroma.stage_invoiced
+msgid "Bloqueado"
+msgstr ""
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_maintenance_equipment__customer_id
+msgid "Client, equipment owner"
+msgstr "Cliente, propietario del equipo"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_helpdesk_create_fsm_task
+msgid "Create a Field Service task"
+msgstr "Crear una tarea de servicio de campo"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_maintenance_equipment__customer_id
+#: model:ir.model.fields.selection,name:rroma.selection__maintenance_equipment__equipment_assign_to__customer
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_purchase_order__door_to_door
+msgid "Door To Door"
+msgstr "Puerta a Puerta"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_purchase_order__door_to_port
+msgid "Door To Port"
+msgstr "Puerta a Puerto"
+
+#. module: rroma
+#: model:ir.model.fields.selection,name:rroma.selection__account_payment__l10n_cr_edi_payment_method__01
+msgid "Efectivo / No se sabe"
+msgstr ""
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Electronic Credit Note"
+msgstr "Nota de Crédito Electrónica"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Electronic Debit Note"
+msgstr "Nota de Débito electrónica"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Electronic Export Invoice"
+msgstr "Factura Electrónica de Exportación"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Electronic Invoice"
+msgstr "Factura electrónica"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Electronic Ticket Invoice"
+msgstr "Tiquete Electrónico"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_helpdesk_ticket__equipment_id
+#: model:ir.model.fields,field_description:rroma.field_project_task__equipment_id
+msgid "Equipment"
+msgstr "Equipo"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_helpdesk_ticket__equipment_id
+#: model:ir.model.fields,help:rroma.field_project_task__equipment_id
+msgid "Equipment to be repaired by ticket"
+msgstr "Equipo a reparar por ticket"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket de Mesa de Ayuda"
+
+#. module: rroma
+#: model:helpdesk.stage,legend_normal:rroma.stage_invoiced
+msgid "In Progress"
+msgstr "En Progreso"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
+
+#. module: rroma
+#: model:helpdesk.stage,name:rroma.stage_invoiced
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: rroma
+#: model:helpdesk.stage,legend_done:rroma.stage_invoiced
+msgid "Lista para la siguiente etapa"
+msgstr ""
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_repair_order__location_id
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Mail:"
+msgstr "Correo:"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Equipo de mantenimiento"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_maintenance_request
+msgid "Maintenance Request"
+msgstr "Petición de mantenimiento"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_maintenance_equipment__maintenance_team_id
+msgid "Maintenance Team"
+msgstr "Equipo de mantenimiento"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_stock_location__owner_id
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr "Página: <span class=\"page\"/> / <span class=\"topage\"/>"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_repair_order__picking_ids
+msgid "Pickings related to the product to be repaired"
+msgstr "Pickings relacionados con el producto a reparar"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_repair_order__group_id
+msgid "Procurement Group"
+msgstr "Grupo de abastecimiento"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_repair_order__group_id
+msgid "Procurement group for the product to be repaired"
+msgstr "Grupo de abastecimiento del producto a reparar"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_maintenance_equipment__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: rroma
+#: model:helpdesk.stage,legend_done:rroma.stage_invoiced
+msgid "Ready for Next Stage"
+msgstr "Lista para la siguiente etapa"
+
+#. module: rroma
+#: model:ir.model.fields.selection,name:rroma.selection__account_payment__l10n_cr_edi_payment_method__05
+msgid "Recaudo por terceros"
+msgstr ""
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_repair_order__picking_ids
+msgid "Receptions"
+msgstr "Recepciones"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_project_task__repair_id
+msgid "Repair"
+msgstr "Reparación"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_repair_line
+msgid "Repair Line (parts)"
+msgstr "Línea de Reparación (partes)"
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_repair_order
+msgid "Repair Order"
+msgstr "Orden de reparación"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_purchase_order__shipping_instructions
+msgid "Shipping Instructions"
+msgstr "Instrucciones de envío"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchaseorder_document_rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchasequotation_document_rroma
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Dirección de Envío</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "<strong>Shipping Address:</strong>"
+msgstr "<strong>Dirección de Entrega:</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_payment_receipt_document_rroma
+msgid ""
+"<strong>The validity of this receipt is conditional on the checks received in partial or total payment has been paid by the respective bank.</strong>\n"
+"                    <strong>Invalid this receipt if it contains alterations or scratches</strong>"
+msgstr ""
+"<strong>La validez de este recibo está condicionado a que los cheques recibidos en pago parcial o total sean pagados por el banco respectivo.</strong>\n"
+"                    <strong>Nulo este recibo si contiene alteraciones o raspaduras</strong>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchaseorder_document_rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_purchasequotation_document_rroma
+msgid "<strong>To:</strong><br/>"
+msgstr "<strong>Para:</strong><br/>"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "Signature"
+msgstr "Firma"
+
+#. module: rroma
+#: model:ir.model.fields.selection,name:rroma.selection__account_payment__l10n_cr_edi_payment_method__02
+msgid "Tarjeta"
+msgstr ""
+
+#. module: rroma
+#: model:ir.model,name:rroma.model_project_task
+#: model:ir.model.fields,field_description:rroma.field_repair_order__task_id
+msgid "Task"
+msgstr "Tarea"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "Tax ID"
+msgstr "Cédula"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+#: model_terms:ir.ui.view,arch_db:rroma.report_web_external_layout_boxed_rroma_inherit
+msgid "Tax ID:"
+msgstr "Cédula:"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_stock_location__owner_id
+msgid "Technician owner of the location if is internal"
+msgstr "Técnico propietario de la ubicación si es interna"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_project_task__repair_id
+msgid "Technician's repair"
+msgstr "Reparación del técnico"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_repair_order__task_id
+msgid "Technician's task"
+msgstr "Tarea del técnico"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.view_repair_order_form
+msgid "The available stock in:"
+msgstr "El stock disponible en:"
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_repair_order__location_id
+msgid "This is the location where the product to repair is located."
+msgstr "Esta es la ubicación donde se encuentra el producto a reparar."
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_maintenance_equipment__equipment_assign_to
+msgid "Used By"
+msgstr "Usado Por"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_repair_line__warehouse_id
+msgid "Warehouse"
+msgstr "Almancén"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_repair_line__warehouses_stock
+msgid "Warehouses Stock"
+msgstr "Stock de almacenes"
+
+#. module: rroma
+#: model:ir.model.fields,field_description:rroma.field_repair_line__warehouses_stock_recompute
+msgid "Warehouses Stock Recompute"
+msgstr "Recalculación de Stock de Almacenes"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.report_invoice_document_rroma_inherit
+msgid "__________________________"
+msgstr ""
+
+#. module: rroma
+#: model:ir.model.fields,help:rroma.field_account_payment__l10n_cr_edi_payment_method
+msgid "Payment method"
+msgstr "Metodo de pago"
+
+#. module: rroma
+#: model_terms:ir.ui.view,arch_db:rroma.view_repair_order_form
+msgid "that can be delivered immediately is:"
+msgstr "que se puede entregar inmediatamente es:"

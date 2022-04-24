@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_inherit_rroma" inherit_id="sale.report_saleorder_document" priority="99">
+        <xpath expr="//td[@name='td_amount_by_group_label_3']/span[@t-esc='amount_by_group[0]']" position="replace">
+            <span>Tax</span>
+        </xpath>
+    </template>
+</odoo>

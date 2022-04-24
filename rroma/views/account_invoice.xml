@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_web_external_layout_boxed_rroma_inherit" inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[@name='company_address']" position="replace">
+           <div name="company_address" class="mb4">
+                <t t-if="company.l10n_cr_edi_tradename"><span class="company_address" t-field="company.l10n_cr_edi_tradename"/><br/></t>
+                <t t-if="company.street"><span class="company_address" t-field="company.street"/>, </t>
+                <t t-if="company.l10n_cr_edi_neighborhood_id"><span class="company_address" t-field="company.l10n_cr_edi_neighborhood_id"/>, </t>
+                <t t-if="company.state_id"><span class="company_address" t-field="company.state_id"/>, </t>
+                <t t-if="company.country_id"><span class="company_address" t-field="company.country_id"/></t><br/>
+                <t t-if="company.phone">Phone: <span t-field="company.phone"/><br/></t>
+                <t t-if="company.vat">Tax ID: <span t-field="company.vat"/><br/></t>
+                <t t-if="company.email">Mail: <span t-field="company.email"/><br/></t>
+                <t t-if="company.email"><span t-field="company.website"/></t>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="replace">
+            <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+                <div class="text-center" name="l10n_cr_edi_footer_container">
+                    <div t-field="company.report_footer"/>
+                        <div>
+                            <t t-if="o._name == 'account.move' and o.l10n_cr_edi_is_required()">
+                                <t t-if="o.l10n_cr_edi_type == '01'">
+                                    <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Electronic Invoice</span>
+                                </t>
+                                <t t-elif="o.l10n_cr_edi_type == '02'">
+                                    <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Electronic Debit Note</span>
+                                </t>
+                                <t t-if="o.l10n_cr_edi_type == '03'">
+                                    <span t-if="o.type == 'out_refund' and o.state == 'posted'">Electronic Credit Note</span>
+                                </t>
+                                <t t-elif="o.l10n_cr_edi_type == '04'">
+                                    <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Electronic Ticket Invoice</span>
+                                </t>
+                                <t t-elif="o.l10n_cr_edi_type == '09'">
+                                    <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Electronic Export Invoice</span>
+                                </t>
+                                <span t-if="o.name != '/'" t-field="o.name"/>
+                                <br/><span>Document Version: 4.3</span><br/>
+                                <span>Authorized by resolution N° DGT-R-48-2016</span>
+                            </t>
+                        </div>
+                        <div t-if="report_type == 'pdf'">
+                            Page: <span class="page"/> / <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+        </xpath>
+
+        <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="inside">
+            <t t-if="'l10n_cr_edi_full_number' in o.fields_get() and o.l10n_cr_edi_full_number">
+                <div style="position:absolute; top:10px; right:0;">
+                    <img t-att-src="o.l10n_cr_edi_generate_qr_code_url()"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="report_invoice_document_rroma_inherit" inherit_id="account.report_invoice_document" priority="99">
+        <xpath expr="//div[@name='invoice_date']" position="replace">
+            <div class="col-auto mw-100 mb-2" t-if="o.invoice_date" name="invoice_date">
+                <strong>Invoice Date:</strong>
+                <t t-if="o.l10n_cr_edi_emission_datetime">
+                <p class="m-0" t-field="o.l10n_cr_edi_emission_datetime"/>
+                </t>
+                <t t-else="">
+                <p class="m-0" t-field="o.invoice_date"/>
+                </t>
+            </div>
+        </xpath>
+
+        <xpath expr="//t[@t-set='address']" position="after">
+            <div t-if="o.partner_id" class="row">
+                <div class="col-6">
+                    <t t-if="o.partner_id.name"><span t-field="o.partner_id.name"/><br/></t>
+                    <t t-if="o.partner_id.vat">Tax ID: <span t-field="o.partner_id.vat"/><br/></t>
+                    <t t-if="o.partner_id.street"><span t-field="o.partner_id.street"/><span>, </span></t>
+                    <t t-if="o.partner_id.l10n_cr_edi_neighborhood_id"><span t-field="o.partner_id.l10n_cr_edi_neighborhood_id"/><span>, </span></t>
+                    <t t-if="o.partner_id.state_id"><span t-field="o.partner_id.state_id"/><span>, </span></t>
+                    <t t-if="o.partner_id.country_id"><span t-field="o.partner_id.country_id"/></t><br/>
+                    <t t-if="o.partner_id.phone">Phone: <span t-field="o.partner_id.phone"/><br/></t>
+                </div>
+                <div class="col-6">
+                    <div t-if="o.partner_shipping_id">
+                        <strong>Shipping Address:</strong>
+                        <t t-if="o.partner_shipping_id.street"><span t-field="o.partner_shipping_id.street"/><span>, </span></t>
+                        <t t-if="o.partner_shipping_id.state_id"><span t-field="o.partner_shipping_id.state_id"/><span>, </span></t>
+                        <t t-if="o.partner_shipping_id.country_id"><span t-field="o.partner_shipping_id.country_id"/></t><br/>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//t[@t-set='address']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+
+      <xpath expr="//div[hasclass('page')]" position="after">
+          <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-5 col-md-7'}">
+              <div id="receipt_compliant" class="row mt32 mb32" style="page-break-before: auto; page-break-inside: avoid;">
+                  <div class="col-auto mw-100 mb-2">
+                      <strong>ACCORDING RECEIPT:</strong>
+                      <p class="m-0">__________________________</p>
+                      <p class="m-0">Tax ID</p>
+                  </div>
+                  <div class="col-auto mw-100 mb-2">
+                      <strong>NAME:</strong>
+                      <p class="m-0">__________________________</p>
+                      <p class="m-0">Signature</p>
+                  </div>
+              </div>
+          </div>
+      </xpath>
+
+      <xpath expr="//div[hasclass('clearfix')]" position="after">
+        <p t-if="o.invoice_incoterm_id">
+          <span t-field="o.invoice_incoterm_id.code"/>,
+          <t t-if="o.partner_shipping_id.name"><span t-field="o.partner_shipping_id.name"/>, </t>
+          <t t-if="o.partner_shipping_id.state_id"><span t-field="o.partner_shipping_id.state_id"/>, </t>
+          <t t-if="o.partner_shipping_id.country_id"><span t-field="o.partner_shipping_id.country_id"/></t>
+          <span>(INCOTERMS 2020)</span>
+        </p>
+        </xpath>
+
+      <xpath expr="//span[@t-field='line.name']" position="after">
+        <t t-if="line.product_id.l10n_cr_edi_code_cabys_id"> - <span t-field="line.product_id.l10n_cr_edi_code_cabys_id.code"/></t>
+     </xpath>
+    </template>
+</odoo>

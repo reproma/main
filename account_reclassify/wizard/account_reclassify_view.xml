@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="account_reclassify_form" model="ir.ui.view">
+        <field name="name">Reclassify Move Lines</field>
+        <field name="model">account.reclassify</field>
+        <field name="arch" type="xml">
+            <form>
+                <group string="Values to set">
+                    <field name="product_id"/>
+                    <field name="account_id"/>
+                    <field name="date"/>
+                    <field name="analytic_id"/>
+                    <field name="analytic_tag_ids" widget="many2many_tags"/>
+                    <field name="show"/>
+                </group>
+                <separator string="Notes"/>
+                <field name="comments"/>
+                <separator string="Documents"/>
+                <group>
+                    <group string="All Invoices">
+                        <field name="invoice_ids" nolabel="1"/>
+                    </group>
+                </group>
+                <group attrs="{'invisible': [('show', '=', False)]}">
+                    <group string="Open Documents">
+                        <field name="posted_invoice_in_ids" nolabel="1"/>
+                        <field name="posted_invoice_out_ids" nolabel="1"
+                               context="{'tree_view_ref': 'account.invoice_tree'}"/>
+                    </group>
+                    <group string="Draft Documents">
+                        <field name="draft_invoice_in_ids" nolabel="1"/>
+                        <field name="draft_invoice_out_ids" nolabel="1"
+                               context="{'tree_view_ref': 'account.invoice_tree'}"/>
+                    </group>
+                    <group string="Paid Documents">
+                        <field name="paid_invoice_in_ids" nolabel="1"/>
+                        <field name="paid_invoice_out_ids" nolabel="1"
+                               context="{'tree_view_ref': 'account.invoice_tree'}"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="reclassify" type="object" string="Execute" class="oe_highlight" confirm="This will change the financial and analytic affectation and there is not comming back, Are you agree?"/>
+                           <span> or </span>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <act_window id="account_reclassify_wizard"
+                name="Reclassify Move Lines"
+                binding_model="account.move"
+                res_model="account.reclassify"
+                view_mode="form" target="new"
+                binding_views="list"
+                groups="account_reclassify.reclassify"/>
+    <act_window id="action_all_partner_invoices"
+                name="All Invoices"
+                res_model="account.move"
+                domain="[('partner_id', 'child_of', active_id)]"
+                binding_model="res.partner"
+                binding_views="form"/>
+</odoo>

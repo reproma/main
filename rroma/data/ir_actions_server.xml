@@ -1,0 +1,14 @@
+<odoo noupdate="1">
+
+    <record id="action_print_csv_stock_valuation_layer" model="ir.actions.server">
+        <field name="name">Valuation Layer Report CSV</field>
+        <field name="model_id" ref="stock_account.model_stock_valuation_layer"/>
+        <field name="state">code</field>
+        <field name="code">
+# res could be replace by a query output
+res = ''
+filename = 'stock_valuation_layer_report.csv'
+action = model.action_valuation_layer_report(raw_data=res, filename=filename)
+        </field>
+    </record>
+</odoo>

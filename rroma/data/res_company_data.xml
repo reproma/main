@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+
+    <record id="data_res_partner_invoice_address_rroma" model="res.partner">
+        <field name="type">invoice</field>
+        <field name="parent_id" ref="base.main_partner"/>
+        <field name="street">Avenida 5, Calle 31</field>
+        <field name="city">Barrio Escalante</field>
+        <field name="state_id" ref="base.state_SJ"/>
+        <field name="country_id" ref="base.cr"/>
+        <field name="zip">10101</field>
+        <field name="phone">+506 2224 9491</field>
+        <field name="email">fe@reproma.com</field>
+    </record>
+
+    <record id="base.main_company" model="res.company">
+        <field name="name">Representaciones Roma S.A.</field>
+        <field name="logo" type="base64" file="rroma/static/img/logo.png"/>
+        <field name="street">Avenida 5, Calle 31</field>
+        <field name="zip">10101</field>
+        <field name="city">Barrio Escalante</field>
+        <field name="phone">+506 2224 9491</field>
+        <field name="vat">3101036367</field>
+        <field name="currency_id" ref="base.CRC"/>
+        <field name="country_id" ref="base.cr"/>
+        <field name="state_id" ref="base.state_SJ"/>
+        <field name="email">fe@reproma.com</field>
+        <field name="website">http://reproma.com</field>
+    </record>
+
+</odoo>

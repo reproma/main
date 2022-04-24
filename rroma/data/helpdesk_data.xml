@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="helpdesk.helpdesk_team1" model="helpdesk.team">
+            <field name="use_fsm" eval="True"/>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="product_category_repairable" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Client Equipments</field>
+        </record>
+
+        <record id="stage_invoiced" model="helpdesk.stage">
+            <field name="name">Invoiced</field>
+            <field name="team_ids" eval="[(4, ref('helpdesk.helpdesk_team1'))]"/>
+            <field name="sequence">5</field>
+            <field name="is_close" eval="False"/>
+            <field name="template_id" eval="ref('rroma.invoiced_ticket_request_email_template')"/>
+        </record>
+    </data>
+
+</odoo>
